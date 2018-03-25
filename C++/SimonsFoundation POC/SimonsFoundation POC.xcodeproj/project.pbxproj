@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A7BFD472067B28800AA4593 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BFD462067B28800AA4593 /* main.cpp */; };
 		3A7BFD4F2067B5BA00AA4593 /* Math.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3A7BFD4E2067B5BA00AA4593 /* Math.cpp */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +24,6 @@
 
 /* Begin PBXFileReference section */
 		3A7BFD432067B28800AA4593 /* SimonsFoundation POC */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "SimonsFoundation POC"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A7BFD462067B28800AA4593 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		3A7BFD4D2067B2B600AA4593 /* Math.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Math.h; sourceTree = "<group>"; };
 		3A7BFD4E2067B5BA00AA4593 /* Math.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Math.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,7 +58,6 @@
 		3A7BFD452067B28800AA4593 /* SimonsFoundation POC */ = {
 			isa = PBXGroup;
 			children = (
-				3A7BFD462067B28800AA4593 /* main.cpp */,
 				3A7BFD4D2067B2B600AA4593 /* Math.h */,
 				3A7BFD4E2067B5BA00AA4593 /* Math.cpp */,
 			);
@@ -124,7 +121,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A7BFD472067B28800AA4593 /* main.cpp in Sources */,
 				3A7BFD4F2067B5BA00AA4593 /* Math.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

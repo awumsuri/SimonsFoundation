@@ -17,7 +17,3 @@ float Math::cCos(float y) {
 float Math::cSin(float x) {
     return std::sin(x);
 }
-
-void Math::test() {
-    std::cout << "Srui is Great";
-}
