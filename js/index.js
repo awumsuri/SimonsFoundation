@@ -1,9 +1,15 @@
+let MathC = new Module.Math();
+
 mathbox = mathBox({
+
+
   plugins: ['core', 'controls', 'cursor', 'stats'],
   controls: {
     klass: THREE.OrbitControls
   },
+
 });
+
 three = mathbox.three;
 
 three.camera.position.set(-3.5, 2.2, -3.3);
@@ -16,46 +22,62 @@ view = mathbox.cartesian({
 
 view.axis({
   axis: 1,
+  width: 5
 });
+
+view.axis({
+  axis: 2,
+  width: 5
+});
+
 view.axis({
   axis: 3,
+  width: 5
 });
 
 view.grid({
+
   width: 5,
   opacity: 0.5,
-  axes: [1, 3],
+  axes: [1,3],
+
 });
 
-var sampler = view.area({
+let sampler = view.area({
+
   id: 'sampler',
   width: 64,
   height: 64,
   axes: [1, 3],
   expr: function (emit, x, y, i, j, time) {
-    emit(x, .35 + .25 * (Math.sin(x + time) * Math.sin(y + time)), y);
-    emit(x, .35 + .25 * (Math.sin(x * 1.31 + time * 1.13) * Math.sin(y * 1.46 - time * .94)) + .5, y);
-    emit(x, .35 + .25 * (Math.sin(x * 1.25 + Math.sin(y + time) - time * 1.34) * Math.sin(y * 1.17 - time * .79)) + 1, y);
+
+    emit(x, .35 + .25 * (MathC.sin(x + time) * MathC.sin(y + time)), y);
+    //emit(x, .35 + .25 * (MathC.sin(x * 1.31 + time * 1.13) * MathC.sin(y * 1.46 - time * .94)) + .5, y);
+    //emit(x, .35 + .25 * (MathC.sin(x * 1.25 + MathC.sin(y + time) - time * 1.34) * MathC.sin(y * 1.17 - time * .79)) + 1, y);
+
   },
-  items: 3,
+
+  items: 1,
   channels: 3,
+
 });
 
-var color = view.matrix({
+let color = view.matrix({
+
   expr: function (emit, i, j, time) {
-    var r = .5 + Math.cos(time * .873) * j;
-    var g = .5 + Math.sin(time) * i;
-    var b = 1;
-    var m = g * .75;
-    var n = (r + g + b) / 3;
+    let r = .5 + MathC.cos(time * .873) * j;
+    let g = .5 + MathC.sin(time) * i;
+    let b = 1;
+    let m = g * .75;
+    let n = (r + g + b) / 3;
 
     r = Math.max(r, m, n*n);
     g = Math.max(g, m, n*n);
     b = Math.max(b, m, n*n);
 
-    var rr = (r * r + r * Math.sin(time * .354)) / 2 * .9;
-    var gg = b + (r + g) * .25 * Math.cos(time * .289)
-    var bb = g + r * .5 + b * .5;
+    let rr = (r * r + r * MathC.sin(time * .354)) / 2 * .9;
+    let gg = b + (r + g) * .25 * MathC.cos(time * .289)
+    let bb = g + r * .5 + b * .5;
 
     rr = rr + (n - rr) * .75
     gg = gg + (n - gg) * .75
@@ -75,6 +97,7 @@ var color = view.matrix({
 });
 
 view.surface({
+
   shaded: true,
   lineX: true,
   lineY: true,
@@ -82,4 +105,5 @@ view.surface({
   colors: color,
   color: 0xFFFFFF,
   width: 5,
+
 });
