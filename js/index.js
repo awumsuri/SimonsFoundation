@@ -1,8 +1,9 @@
+"use strict";
+
 //C++ Binding
 let MathC = new Module.Math();
 
-mathbox = mathBox({
-
+let mathbox = mathBox({
 
   plugins: ['core', 'controls', 'cursor', 'stats'],
   controls: {
@@ -11,12 +12,12 @@ mathbox = mathBox({
 
 });
 
-three = mathbox.three;
+let three = mathbox.three;
 
 three.camera.position.set(-3.5, 2.2, -3.3);
 three.renderer.setClearColor(new THREE.Color(0xFFFFFF), 1.0);
 
-view = mathbox.cartesian({
+let view = mathbox.cartesian({
   range: [[-3, 3], [0, 1], [-3, 3]],
   scale: [2, 1, 2],
 });
