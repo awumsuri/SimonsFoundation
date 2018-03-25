@@ -1,3 +1,4 @@
+//C++ Binding
 let MathC = new Module.Math();
 
 mathbox = mathBox({
@@ -51,9 +52,8 @@ let sampler = view.area({
   axes: [1, 3],
   expr: function (emit, x, y, i, j, time) {
 
-    emit(x, .35 + .25 * (MathC.sin(x + time) * MathC.sin(y + time)), y);
-    //emit(x, .35 + .25 * (MathC.sin(x * 1.31 + time * 1.13) * MathC.sin(y * 1.46 - time * .94)) + .5, y);
-    //emit(x, .35 + .25 * (MathC.sin(x * 1.25 + MathC.sin(y + time) - time * 1.34) * MathC.sin(y * 1.17 - time * .79)) + 1, y);
+    //Using C++ Bindings
+    emit(x, .35 + .25 * (MathC.sin(x + time) * MathC.cos(y + time)), y);
 
   },
 
@@ -65,6 +65,8 @@ let sampler = view.area({
 let color = view.matrix({
 
   expr: function (emit, i, j, time) {
+
+    //Using C++ Bindings
     let r = .5 + MathC.cos(time * .873) * j;
     let g = .5 + MathC.sin(time) * i;
     let b = 1;
@@ -75,6 +77,7 @@ let color = view.matrix({
     g = Math.max(g, m, n*n);
     b = Math.max(b, m, n*n);
 
+    //Using C++ Bindings
     let rr = (r * r + r * MathC.sin(time * .354)) / 2 * .9;
     let gg = b + (r + g) * .25 * MathC.cos(time * .289)
     let bb = g + r * .5 + b * .5;
