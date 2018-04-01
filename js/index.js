@@ -1,7 +1,7 @@
 "use strict";
 
 //C++ Binding
-let MathC = new Module.Math();
+let MathCplusPlus = new Module.Math();
 
 let mathbox = mathBox({
 
@@ -54,7 +54,7 @@ let sampler = view.area({
   expr: function (emit, x, y, i, j, time) {
 
     //Using C++ Bindings
-    emit(x, .35 + .25 * (MathC.sin(x + time) * MathC.cos(y + time)), y);
+    emit(x, .35 + .25 * (MathCplusPlus.sin(x + time) * MathCplusPlus.cos(y + time)), y);
 
   },
 
@@ -68,8 +68,8 @@ let color = view.matrix({
   expr: function (emit, i, j, time) {
 
     //Using C++ Bindings
-    let r = .5 + MathC.cos(time * .873) * j;
-    let g = .5 + MathC.sin(time) * i;
+    let r = .5 + MathCplusPlus.cos(time * .873) * j;
+    let g = .5 + MathCplusPlus.sin(time) * i;
     let b = 1;
     let m = g * .75;
     let n = (r + g + b) / 3;
@@ -79,8 +79,8 @@ let color = view.matrix({
     b = Math.max(b, m, n*n);
 
     //Using C++ Bindings
-    let rr = (r * r + r * MathC.sin(time * .354)) / 2 * .9;
-    let gg = b + (r + g) * .25 * MathC.cos(time * .289)
+    let rr = (r * r + r * MathCplusPlus.sin(time * .354)) / 2 * .9;
+    let gg = b + (r + g) * .25 * MathCplusPlus.cos(time * .289)
     let bb = g + r * .5 + b * .5;
 
     rr = rr + (n - rr) * .75
