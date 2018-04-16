@@ -20,7 +20,7 @@ let view = mathbox
 })
 .polar({
   range: [[-2*π, 2*π], [-1, 1], [-1, 1]],
-  scale: [12, 1, 1],
+  scale: [1, 1, 1],
 });
 
 view.axis({
