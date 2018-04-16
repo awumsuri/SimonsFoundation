@@ -54,7 +54,7 @@ let sampler = view.area({
   expr: function (emit, x, y, i, j, time) {
 
     //Using C++ Bindings
-    emit(x, .35 + .25 * (MathCplusPlus.sin(x + time) * MathCplusPlus.cos(y + time)), y);
+    emit(x, .35 + .25 * (MathCplusPlus.sin(x + 0) * MathCplusPlus.sin(y + 0)), y);
 
   },
 
